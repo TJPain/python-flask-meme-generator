@@ -3,7 +3,7 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from QuoteModel import QuoteModel
+from .QuoteModel import QuoteModel
 
 
 class IngestorInterface(ABC):    
