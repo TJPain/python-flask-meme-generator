@@ -30,7 +30,7 @@ The programme can be run via the command line or as a web application.
 To start the application run app.py on flask:
 
 ```bash
-python app.py
+$ python3 app.py
 ```
 
 Once running, you can access the application on the following virtual server: http://localhost:5000
@@ -46,7 +46,7 @@ To run the programme at the command line, invoke `python3 meme.py`. `meme.py`  t
 The script returns a path to a generated image. If any argument is not defined, a random selection is used.
 
 ```bash
-$ python3 meme.py
+$ python3 meme.py --help
 
 usage: meme.py [-h] [--path PATH] [--body BODY] [--author AUTHOR]
 ```

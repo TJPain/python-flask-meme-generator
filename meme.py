@@ -1,4 +1,4 @@
-"""meme cli."""
+"""Meme cli."""
 
 import os
 import random
@@ -27,8 +27,8 @@ def generate_meme(path=None, body=None, author=None):
                        './_data/DogQuotes/DogQuotesPDF.pdf',
                        './_data/DogQuotes/DogQuotesCSV.csv']
         quotes = []
-        for f in quote_files:
-            quotes.extend(Ingestor.parse(f))
+        for file in quote_files:
+            quotes.extend(Ingestor.parse(file))
 
         quote = random.choice(quotes)
     else:
