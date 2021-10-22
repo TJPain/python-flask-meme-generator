@@ -32,7 +32,7 @@ class PDFIngestor(IngestorInterface):
         try:
             quotes = []
             # Create a temporary .txt file
-            temp = f'./tmp/{random.randit(0,100000)}.txt'
+            temp = f'./static/{random.randit(0,100000)}.txt'
             #use pdftotext to read pdf data to the txt file
             subprocess.call(['pdftotext', path, temp])
             with open(temp, 'r') as file:

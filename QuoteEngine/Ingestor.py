@@ -18,22 +18,23 @@ class Ingestor(IngestorInterface):
     Realises the IngestorInterface class.
     """
 
-    def parse(cls, path: str) -> List[QuoteModel]:
+    def parse(path: str) -> List[QuoteModel]:
         """Test the file extension and return a list of QuoteModels.
 
         :params: file path that contains the quote data
         :returns: calls the relevant ingestor helper class for the file type
         """
         ingestors = {
-            'csv': CSVIngestor,
-            'docx': DocxIngestor,
-            'pdf': PDFIngestor,
+            # 'csv': CSVIngestor,
+            # 'docx': DocxIngestor,
+            # 'pdf': PDFIngestor,
             'txt': TextIngestor
         }
         file_extension = path.split('.')[-1]
 
         try:
             for ingestor in ingestors.items():
+                print('iterating through ingestors')
                 if ingestor[0] == file_extension:
                     return ingestor[1].parse(path)
         except:

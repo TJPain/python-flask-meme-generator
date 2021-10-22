@@ -26,22 +26,22 @@ class MemeEngine():
         """
         #Resize the image to input width unless it is zero or greater than 500
         img_width = 500 if width == 0 else width if width < 500 else 500
-
         try:
             with Image.open(img_path) as image:
                 height = ((img_width/image.width) * image.height)
                 image_resized = image.resize((width, height))
         except:
-            print('Error opening image')  
+            print('Error opening image')
 
         try:
             if text is not None:
                 draw = ImageDraw.Draw(image_resized)
-                font = ImageFont.truetype('./fonts/Rubik-SemiBold.ttf', size=20)
+                font = ImageFont.truetype('../static/fonts/Rubik-SemiBold.ttf', size=20)
                 #Add padding to the image
-                padding_size = 20 if width > 200 else 5                
+                padding_size = 20 if width > 200 else 5      
                 #Draw the text on the image
                 draw.multiline_text((padding_size, random.randint(padding_size, height/2)), f'{text}\n{author}', font=font, fill='white', stroke_fill='black')
+                #Save the image
                 out_path = f'{self.output_dir}/{random.randint(0,100000000)}.jpg'
                 image_resized.save(out_path)
                 return out_path
