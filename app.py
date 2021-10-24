@@ -16,7 +16,7 @@ def setup():
     """Load all resources."""
     quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
                    './_data/DogQuotes/DogQuotesDOCX.docx',
-                   './_data/DogQuotes/DogQuotesPDF.pdf',
+                #    './_data/DogQuotes/DogQuotesPDF.pdf',
                    './_data/DogQuotes/DogQuotesCSV.csv']
 
     quotes = []
@@ -30,7 +30,7 @@ def setup():
     images_path = "./_data/photos/dog/"
 
     # find all images within the images images_path directory
-    imgs = None
+    imgs = []
 
     try: 
         for root, dirs, files in os.walk(images_path, topdown=True):
@@ -64,7 +64,7 @@ def meme_post():
     """Create a user defined meme."""
     #temporary path
     tmp_file = f'./static/{random.randint(0, 1000000)}.jpg'
-    
+
     #user params
     img_url = request.form.get('image_url')
     body = request.form.get('body', '')

@@ -25,8 +25,8 @@ class Ingestor(IngestorInterface):
         :returns: calls the relevant ingestor helper class for the file type
         """
         ingestors = {
-            # 'csv': CSVIngestor,
-            # 'docx': DocxIngestor,
+            'csv': CSVIngestor,
+            'docx': DocxIngestor,
             # 'pdf': PDFIngestor,
             'txt': TextIngestor
         }
@@ -34,7 +34,6 @@ class Ingestor(IngestorInterface):
 
         try:
             for ingestor in ingestors.items():
-                print('iterating through ingestors')
                 if ingestor[0] == file_extension:
                     return ingestor[1].parse(path)
         except:

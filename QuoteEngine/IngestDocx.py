@@ -33,7 +33,7 @@ class DocxIngestor(IngestorInterface):
             for paragraph in doc.paragraphs:
                 if paragraph.text != "":
                     quote_list = paragraph.text.split(' - ')
-                    quote = QuoteModel(quote_list['0'], quote_list['1'])
+                    quote = QuoteModel(quote_list[0], quote_list[1])
                     quotes.append(quote)
             return quotes
         except:

@@ -23,12 +23,10 @@ def generate_meme(path=None, body=None, author=None):
         img = path
 
     if body is None:
-        quote_files = [
-                       './_data/DogQuotes/DogQuotesTXT.txt',
-                    #    './_data/DogQuotes/DogQuotesDOCX.docx',
+        quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
+                       './_data/DogQuotes/DogQuotesDOCX.docx',
                     #    './_data/DogQuotes/DogQuotesPDF.pdf',
-                    #    './_data/DogQuotes/DogQuotesCSV.csv'
-                    ]
+                       './_data/DogQuotes/DogQuotesCSV.csv']
         quotes = []
         for file in quote_files:
             quotes.extend(Ingestor.parse(file))
@@ -40,9 +38,6 @@ def generate_meme(path=None, body=None, author=None):
         quote = QuoteModel(body, author)
 
     meme = MemeEngine('./static')
-    print('img', img)
-    print('quote', quote.body)
-    print('author', quote.author)
     path = meme.make_meme(img, quote.body, quote.author)
     return path
 

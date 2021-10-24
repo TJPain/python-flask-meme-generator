@@ -32,7 +32,7 @@ class TextIngestor(IngestorInterface):
                 for line in file:
                     if line != "":
                         quote_list = line.split(' - ')
-                        quote = QuoteModel(quote_list['0'], quote_list['1'])
+                        quote = QuoteModel(quote_list[0], quote_list[1])
                         quotes.append(quote)
             return quotes
         except:
