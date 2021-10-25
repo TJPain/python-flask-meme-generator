@@ -32,20 +32,21 @@ class PDFIngestor(IngestorInterface):
         try:
             quotes = []
             # Create a temporary .txt file
-            print('test1')
-            temp = f'./static/{random.randit(0,100000)}.txt'
-            print('test2')
+            temp = f'./static/{random.randint(0,100000)}.txt'
             #use pdftotext to read pdf data to the txt file
-            # subprocess.call(['pdftotext', path, temp])
-            # with open(temp, 'r') as file:
-            #     for line in file:
-            #         quote_line = line.strip('\n\r').strip()
-            #         if line != "":
-            #             quote_list = quote_line.split(' - ')
-            #             quote = QuoteModel(quote_list[0], quote_list[1])
-            #             quotes.append(quote)
+            subprocess.call(['pdftotext', path, temp])
+            with open(temp, 'r') as file:
+                for line in file:
+                    if line == "\n":
+                        break
+                    quote_line = line.strip('\n').strip()
+                    # print(quote_line[0])
+                    if line != "":
+                        quote_list = quote_line.split(' - ')
+                        quote = QuoteModel(quote_list[0], quote_list[1])
+                        quotes.append(quote)
             # Remove the temporary txt file
-            # os.remove(temp)
-            # return quotes
+            os.remove(temp)
+            return quotes
         except:
             print('Issue parsing pdf file')

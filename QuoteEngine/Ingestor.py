@@ -27,7 +27,7 @@ class Ingestor(IngestorInterface):
         ingestors = {
             'csv': CSVIngestor,
             'docx': DocxIngestor,
-            # 'pdf': PDFIngestor,
+            'pdf': PDFIngestor,
             'txt': TextIngestor
         }
         file_extension = path.split('.')[-1]
